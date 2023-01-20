@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
-use App\Http\Requests\StoreMemberRequest;
-use App\Http\Requests\UpdateMemberRequest;
+use App\Http\Requests\MemberRequest;
+use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
@@ -31,10 +31,10 @@ class MemberController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreMemberRequest  $request
+     * @param  \App\Http\Requests\MemberRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMemberRequest $request)
+    public function store(MemberRequest $request)
     {
         //
     }
@@ -64,11 +64,11 @@ class MemberController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateMemberRequest  $request
+     * @param  \App\Http\Requests\MemberRequest  $request
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMemberRequest $request, Member $member)
+    public function update(MemberRequest $request, Member $member)
     {
         //
     }
