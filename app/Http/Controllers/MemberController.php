@@ -13,9 +13,11 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Member $member)
     {
-        return view('member.index');
+        $members = $member->allMembersSelect();
+        return view('member.index', compact('members'));
+        // return view('member.index');
     }
 
     /**
@@ -25,7 +27,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('member.create');
     }
 
     /**
@@ -56,9 +58,10 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function edit(Member $member)
+    public function edit(Member $member, Request $request)
     {
-        //
+        $member = $member->editMemberSelect($request);
+        return view('member.edit',compact('member'));
     }
 
     /**
