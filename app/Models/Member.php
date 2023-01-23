@@ -15,7 +15,6 @@ class Member extends Model
         'updated_at',
     ];
 
-    // 機能していない？
     protected $hidden = [
         'created_at',
         'updated_at',
@@ -27,10 +26,14 @@ class Member extends Model
         return $members;
     }
 
-    public function editMemberSelect($request)
+    public function editMemberSelect($id)
     {
-        $id = $request;
-        $member = $this->where('id', $id);
+        $member = $this->where('id', $id)->first();
         return $member;
+    }
+
+    public function destroyMember($request)
+    {
+        //
     }
 }

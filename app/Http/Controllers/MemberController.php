@@ -60,8 +60,9 @@ class MemberController extends Controller
      */
     public function edit(Member $member, Request $request)
     {
-        $member = $member->editMemberSelect($request);
-        return view('member.edit',compact('member'));
+        $id = $request->id;
+        $member = $member->editMemberSelect($id);
+        return view('member.edit', compact('member'));
     }
 
     /**
@@ -73,7 +74,9 @@ class MemberController extends Controller
      */
     public function update(MemberRequest $request, Member $member)
     {
-        //
+        $member->fill($request->all());
+        dd($member);
+        $member->save();
     }
 
     /**

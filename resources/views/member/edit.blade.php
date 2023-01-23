@@ -2,32 +2,41 @@
 
 @section('content')
     <h1>登録画面</h1>
-    {{-- <a class="btn btn-light btn-sm" href={{ route('member.create') }}>新規登録</a> --}}
+    <p>更新登録</p>
+    <form action={{ route('member.update', $member) }} method="POST">
+    @method('PATCH')
+    @csrf
     <ul class="w-50 list-group list-group-flush">
-        <li class="list-group-item">name
-            <input class="w-100" type="text" name="name" id="name">
+        <li class="list-group-item">
+            <label>name</label>
+            <input class="w-100" type="text" name="name" id="name" value={{ old('name', $member->name) }}>
         </li>
-        <li class="list-group-item">mail
-            <input class="w-100" type="email" name="mail" id="mail">
+        <li class="list-group-item">
+            <label>mail</label>
+            <input class="w-100" type="email" name="mail" id="mail" value={{ old('mail', $member->mail) }}>
         </li>
-        <li class="list-group-item">age
-            <input class="w-100" type="number" name="age" id="age">
+        <li class="list-group-item">
+            <label>age</label>
+            <input class="w-100" type="number" name="age" id="age" value={{ old('age', $member->age) }}>
         </li>
-        <li class="list-group-item">gender
-            <input class="w-100" type="radio" name="gender" id="gender">
+        <li class="list-group-item">
+            <label>gender</label>
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="gender1" value="male"
+                        {{ $member->gender == 'male' ? 'checked' : '' }}>
+                    <label class="form-check-label" for="gender1">male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="gender2" value="female"
+                        {{ $member->gender == 'female' ? 'checked' : '' }}>
+                    <label class="form-check-label" for="gender2">female</label>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <input class="btn btn-primary btn-sm" type="submit" value="更新登録">
         </li>
     </ul>
-    {{-- @foreach ($members as $member)
-                <tr>
-                    <td>{{ $member->id }}</td>
-                    <td>{{ $member->name }}</td>
-                    <td>{{ $member->mail }}</td>
-                    <td>{{ $member->age }}</td>
-                    <td>{{ $member->gender }}</td>
-                    <td>
-                        <a class="btn btn-primary btn-sm" href={{ route('member.edit', $member->id) }}>更新</a>
-                        <a class="btn btn-danger btn-sm" href={{ route('member.destroy', $member->id) }}>削除</a>
-                    </td>
-                </tr>
-            @endforeach --}}
+    </form>
 @endsection
