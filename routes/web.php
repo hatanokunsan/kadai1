@@ -9,9 +9,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::resource('/member', [MemberController::class]);
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// 上手く動かないので、メソッド毎に記述する
+// Route::resource('/member', [MemberController::class]);
 
 Route::get('/', [MemberController::class, 'index'])->name('member.index');
 Route::get('/create', [MemberController::class, 'create'])->name('member.create');
