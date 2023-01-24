@@ -15,9 +15,9 @@ class MemberController extends Controller
      */
     public function index(Member $member)
     {
+        $title = '一覧画面';
         $members = $member->allMembersSelect();
-        return view('member.index', compact('members'));
-        // return view('member.index');
+        return view('member.index', compact('title', 'members'));
     }
 
     /**
@@ -58,11 +58,12 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function edit(Member $member, Request $request)
+    public function edit(Member $member, $id, Request $request)
     {
-        $id = $request->id;
+        $title = '登録画面';
+        $sub_title = '更新登録';
         $member = $member->editMemberSelect($id);
-        return view('member.edit', compact('member'));
+        return view('member.edit', compact('title', 'sub_title', 'member'));
     }
 
     /**
