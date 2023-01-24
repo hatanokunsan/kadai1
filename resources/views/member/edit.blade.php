@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>登録画面</h1>
-    <p>更新登録</p>
+    <h1>{{ $title }}</h1>
+    <p>{{$sub_title}}</p>
     <form action={{ route('member.update', $member->id) }} method="POST">
-        @method('PATCH')
         @csrf
+        @method('PATCH')
         <ul class="w-50 list-group list-group-flush">
             <li class="list-group-item">
                 <label>name</label>
