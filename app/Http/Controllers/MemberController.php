@@ -72,11 +72,15 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(MemberRequest $request, Member $member)
+    public function update(MemberRequest $request, $id, Member $member)
     {
-        $member->fill($request->all());
-        dd($member);
+        $member = Member::find($id);
+        $member->name = $request->name;
+        $member->mail = $request->mail;
+        $member->age = $request->age;
+        $member->gender = $request->gender;
         $member->save();
+        return redirect(route('member.index'));
     }
 
     /**
@@ -85,8 +89,10 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Member $member)
+    public function destroy(Member $member, $id)
     {
-        //
+        $member = Member::find($id);
+        $member->delete();
+        return redirect(route('member.index'))->with('message', '削除しました');
     }
 }
