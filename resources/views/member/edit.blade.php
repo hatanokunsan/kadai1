@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>{{ $title }}</h1>
-    <p>{{$sub_title}}</p>
+    <p>{{ $sub_title }}</p>
     <form action={{ route('member.update', $member->id) }} method="POST">
         @csrf
         @method('PATCH')
@@ -35,7 +35,8 @@
                 </div>
             </li>
             <li class="list-group-item">
-                <input class="btn btn-primary btn-sm" type="submit" value="{{$sub_title}}">
+                <input class="btn btn-primary btn-sm" type="submit" value="{{ $sub_title }}">
+                <a class="btn btn-secondary btn-sm" href="{{ route('member.index') }}">戻る</a>
             </li>
         </ul>
     </form>

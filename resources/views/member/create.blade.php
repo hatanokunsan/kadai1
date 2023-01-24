@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>{{ $title }}</h1>
-    <p>{{$sub_title}}</p>
+    <p>{{ $sub_title }}</p>
     <form action={{ route('member.store') }} method="POST">
         @csrf
         <ul class="w-50 list-group list-group-flush">
@@ -22,19 +22,18 @@
                 <label>gender</label>
                 <div class="form-group">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="male"
-                            >
+                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="male">
                         <label class="form-check-label" for="gender1">male</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="female"
-                            >
+                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="female">
                         <label class="form-check-label" for="gender2">female</label>
                     </div>
                 </div>
             </li>
             <li class="list-group-item">
-                <input class="btn btn-primary btn-sm" type="submit" value="{{$sub_title}}">
+                <input class="btn btn-primary btn-sm" type="submit" value="{{ $sub_title }}">
+                <a class="btn btn-secondary btn-sm" href="{{ route('member.index') }}">戻る</a>
             </li>
         </ul>
     </form>
