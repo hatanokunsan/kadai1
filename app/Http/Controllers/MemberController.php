@@ -27,7 +27,9 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('member.create');
+        $title = '登録画面';
+        $sub_title = '新規登録';
+        return view('member.create', compact('title', 'sub_title'));
     }
 
     /**
@@ -36,9 +38,12 @@ class MemberController extends Controller
      * @param  \App\Http\Requests\MemberRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MemberRequest $request)
+    public function store(MemberRequest $request, Member $member)
     {
-        //
+        $member = $member->fill($request->all());
+        $member->save();
+        // withが機能していない？
+        return redirect(route('member.index'))->with('message', '登録しました');
     }
 
     /**
@@ -49,7 +54,7 @@ class MemberController extends Controller
      */
     public function show(Member $member)
     {
-        //
+        redirect('member.index');
     }
 
     /**
@@ -94,6 +99,7 @@ class MemberController extends Controller
     {
         $member = Member::find($id);
         $member->delete();
+        // withが機能していない？
         return redirect(route('member.index'))->with('message', '削除しました');
     }
 }
