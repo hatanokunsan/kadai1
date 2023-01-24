@@ -35,7 +35,7 @@
                 </div>
             </li>
             <li class="list-group-item">
-                <input class="btn btn-primary btn-sm" type="submit" value="更新登録">
+                <input class="btn btn-primary btn-sm" type="submit" value="{{$sub_title}}">
             </li>
         </ul>
     </form>

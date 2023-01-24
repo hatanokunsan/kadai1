@@ -2,9 +2,12 @@
 
 @section('content')
     <h1>{{ $title }}</h1>
-    @if (!empty($message))
-        {{ $message }}
+
+    {{-- 機能していない…修正中 2023_0124 --}}
+    @if (isset($message))
+        <p>{{ $message }}</p>
     @endif
+
     <a class="btn btn-outline-primary btn-sm" href={{ route('member.create') }}>新規登録</a>
     <table class="table">
         <thead>
