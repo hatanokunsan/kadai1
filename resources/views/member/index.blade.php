@@ -3,9 +3,8 @@
 @section('content')
     <h1>{{ $title }}</h1>
 
-    {{-- 機能していない…修正中 2023_0124 --}}
-    @if (isset($message))
-        <p>{{ $message }}</p>
+    @if (Session::has('message'))
+        <p class="alert alert-success">{{ session('message') }}</p>
     @endif
 
     <a class="btn btn-outline-primary btn-sm" href={{ route('member.create') }}>新規登録</a>
@@ -17,7 +16,6 @@
                 <th>mail</th>
                 <th>age</th>
                 <th>gender</th>
-                <th></th>
                 <th></th>
             </tr>
         </thead>
