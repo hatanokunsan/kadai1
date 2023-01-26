@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController;
 
-Route::get('/', function () {
-    return redirect('/member');
-});
+// Route::get('/', function () {
+//     return redirect('/');
+// });
 
 Auth::routes();
 
@@ -21,4 +21,3 @@ Route::get('/show/{id}', [MemberController::class, 'show'])->name('member.show')
 Route::get('/edit/{id}', [MemberController::class, 'edit'])->name('member.edit');
 Route::patch('/update/{id}', [MemberController::class, 'update'])->name('member.update');
 Route::delete('/destroy/{id}', [MemberController::class, 'destroy'])->name('member.destroy');
-// Route::post('/destroy/{id}', [MemberController::class, 'destroy'])->name('member.destroy');
