@@ -42,7 +42,6 @@ class MemberController extends Controller
     {
         $member = $member->fill($request->all());
         $member->save();
-        // withが機能していない？
         return redirect('/')->with('message', '登録しました');
     }
 
@@ -99,7 +98,6 @@ class MemberController extends Controller
     {
         $member = Member::find($id);
         $member->delete();
-        // withが機能していない？
         return redirect('/')->with('message', '削除しました');
     }
 }
