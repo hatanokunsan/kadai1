@@ -43,7 +43,7 @@ class MemberController extends Controller
         $member = $member->fill($request->all());
         $member->save();
         // withが機能していない？
-        return redirect(route('member.index'))->with('message', '登録しました');
+        return redirect('/')->with('message', '登録しました');
     }
 
     /**
@@ -54,7 +54,7 @@ class MemberController extends Controller
      */
     public function show(Member $member)
     {
-        redirect('member.index');
+        redirect('/');
     }
 
     /**
@@ -86,7 +86,7 @@ class MemberController extends Controller
         $member->age = $request->age;
         $member->gender = $request->gender;
         $member->save();
-        return redirect(route('member.index'));
+        return redirect('/')->with(['message' => '更新しました']);
     }
 
     /**
@@ -100,6 +100,6 @@ class MemberController extends Controller
         $member = Member::find($id);
         $member->delete();
         // withが機能していない？
-        return redirect(route('member.index'))->with('message', '削除しました');
+        return redirect('/')->with('message', '削除しました');
     }
 }
