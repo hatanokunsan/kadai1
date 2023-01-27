@@ -51,8 +51,9 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function show(Member $member)
+    public function show()
     {
+        // 詳細ページは用意しない為、一覧ページにリダイレクトさせる
         redirect('/');
     }
 
@@ -67,6 +68,10 @@ class MemberController extends Controller
         $title = '登録画面';
         $sub_title = '更新登録';
         $member = $member->editMemberSelect($id);
+        // 指定された$idに該当するデータが存在しない場合の処理
+        if ($member == null) {
+            return redirect('/')->with('message', '存在しません');
+        }
         return view('member.edit', compact('title', 'sub_title', 'member'));
     }
 
@@ -79,12 +84,7 @@ class MemberController extends Controller
      */
     public function update(MemberRequest $request, $id, Member $member)
     {
-        $member = Member::find($id);
-        $member->name = $request->name;
-        $member->mail = $request->mail;
-        $member->age = $request->age;
-        $member->gender = $request->gender;
-        $member->save();
+        $member->updateMember($id, $request);
         return redirect('/')->with(['message' => '更新しました']);
     }
 
@@ -96,7 +96,11 @@ class MemberController extends Controller
      */
     public function destroy(Member $member, $id)
     {
-        $member = Member::find($id);
+        $member = $member->find($id);
+        // 指定された$idに該当するデータが存在しない場合の処理
+        if ($member == null) {
+            return redirect('/')->with('message', '存在しません');
+        }
         $member->delete();
         return redirect('/')->with('message', '削除しました');
     }
