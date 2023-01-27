@@ -35,7 +35,11 @@ class MemberRequest extends FormRequest
                 // 一意である事をチェックするが、自分自身は除外している
                 Rule::unique('members')->ignore($this->id), // ignore(除外対象)
             ],
-            'age' => 'required',
+            'age' => [
+                'required',
+                'integer',
+                'between:1,120',
+            ],
             'gender' => 'required',
         ];
     }
@@ -48,6 +52,8 @@ class MemberRequest extends FormRequest
             'mail.required' => 'mailは必須入力です',
             'mail.unique' => '既に登録されています',
             'age.required' => 'ageは必須入力です',
+            'age.integer' => '数値を入力してください',
+            'age.between' => '1から120までの数値を入力してください',
             'gender.required' => 'genderは必須入力です',
         ];
     }
