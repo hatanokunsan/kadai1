@@ -32,4 +32,14 @@ class Member extends Model
         $member = $this->where('id', $id)->first();
         return $member;
     }
+
+    public function updateMember($id, $request)
+    {
+        $member = $this->find($id);
+        $member->name = $request->name;
+        $member->mail = $request->mail;
+        $member->age = $request->age;
+        $member->gender = $request->gender;
+        $member->save();
+    }
 }
