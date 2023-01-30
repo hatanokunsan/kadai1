@@ -25,11 +25,11 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Member $member)
     {
         $title = '登録画面';
         $sub_title = '新規登録';
-        return view('member.create', compact('title', 'sub_title'));
+        return view('member.create', compact('title', 'sub_title', 'member'));
     }
 
     /**
@@ -72,7 +72,7 @@ class MemberController extends Controller
         if ($member == null) {
             return redirect('/')->with('message', '存在しません');
         }
-        return view('member.edit', compact('title', 'sub_title', 'member'));
+        return view('member.create', compact('title', 'sub_title', 'member'));
     }
 
     /**

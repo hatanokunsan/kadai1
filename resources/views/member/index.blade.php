@@ -30,6 +30,7 @@
                     <td>
                         <form action="{{ Route('member.destroy', $member->id) }}" method="post">
                             <a class="btn btn-primary btn-sm" href={{ route('member.edit', $member->id) }}>更新</a>
+                            {{-- <a class="btn btn-primary btn-sm" href={{ route('member.edit', $member->id) }}>更新</a> --}}
                             @csrf
                             @method('DELETE')
                             <input class="btn btn-danger btn-sm" type="submit" value="削除">
