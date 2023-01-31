@@ -3,9 +3,11 @@
 @section('content')
     <h1>{{ $title }}</h1>
 
+    {{-- 新規作成や更新処理の後、完了メッセージが表示されるブロック --}}
     @if (Session::has('message'))
         <p class="alert alert-success">{{ session('message') }}</p>
     @endif
+    {{-- ここまで --}}
 
     <a class="btn btn-outline-primary btn-sm" href={{ route('member.create') }}>新規登録</a>
     <table class="table">
