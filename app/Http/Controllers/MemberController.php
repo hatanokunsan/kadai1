@@ -29,7 +29,7 @@ class MemberController extends Controller
     {
         $title = '登録画面';
         $sub_title = '新規登録';
-        return view('member.createOrUpdate', compact('title', 'sub_title', 'member'));
+        return view('member.createOrEdit', compact('title', 'sub_title', 'member'));
     }
 
     /**
@@ -72,7 +72,7 @@ class MemberController extends Controller
         if ($member == null) {
             return redirect('/')->with('message', '存在しません');
         }
-        return view('member.createOrUpdate', compact('title', 'sub_title', 'member'));
+        return view('member.createOrEdit', compact('title', 'sub_title', 'member'));
     }
 
     /**
