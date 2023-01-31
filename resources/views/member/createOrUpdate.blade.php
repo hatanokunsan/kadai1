@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>これはcreateOrUpdate.bladeです</h3>
     <h1>{{ $title }}</h1>
     <p>{{ $sub_title }}</p>
     <form action="{{ $member->exists ? route('member.update', $member) : route('member.store') }}" method="POST">
