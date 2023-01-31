@@ -38,7 +38,7 @@ class MemberRequest extends FormRequest
             'age' => [
                 'required',
                 'integer',
-                'between:1,120',
+                'between:0,120',
             ],
             'gender' => 'required',
         ];
@@ -53,7 +53,7 @@ class MemberRequest extends FormRequest
             'mail.unique' => '既に登録されています',
             'age.required' => 'ageは必須入力です',
             'age.integer' => '数値を入力してください',
-            'age.between' => '1から120までの数値を入力してください',
+            'age.between' => '0から120までの数値を入力してください',
             'gender.required' => 'genderは必須入力です',
         ];
     }
