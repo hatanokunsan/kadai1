@@ -10,28 +10,33 @@
         @endif
         <ul class="w-50 list-group list-group-flush">
             <li class="border-0 bg-transparent list-group-item">
-                <label>name</label>
+                <label for="id">id:
+                    {{ $member->id ?? '' }}
+                </label>
+            </li>
+            <li class="border-0 bg-transparent list-group-item">
+                <label for="name">name:</label>
                 <input class="w-100" type="text" name="name" id="name" value="{{ old('name', $member->name) }}">
                 @error('name')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </li>
             <li class="border-0 bg-transparent list-group-item">
-                <label>mail</label>
+                <label for="mail">mail:</label>
                 <input class="w-100" type="email" name="mail" id="mail" value="{{ old('mail', $member->mail) }}">
                 @error('mail')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </li>
             <li class="border-0 bg-transparent list-group-item">
-                <label>age</label>
+                <label for="age">age:</label>
                 <input class="w-100" type="number" name="age" id="age" value="{{ old('age', $member->age) }}">
                 @error('age')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </li>
             <li class="border-0 bg-transparent list-group-item">
-                <label>gender</label>
+                <label>gender:</label>
                 <div class="form-group">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="gender1" value="male"
