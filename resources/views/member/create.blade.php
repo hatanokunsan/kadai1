@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <h3>これはcreate.bladeです</h3>
     <h1>{{ $title }}</h1>
     <p>{{ $sub_title }}</p>
     <form action="{{ route('member.store') }}" method="POST">
