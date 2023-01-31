@@ -52,14 +52,14 @@
                 @yield('content')
             </div>
         </main>
+        <footer>
+            <nav class="text-white navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+                <div class="container">
+                    @include('layouts.footer')
+                </div>
+            </nav>
+        </footer>
     </div>
-    <footer>
-        <nav class="text-white navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
-            <div class="container">
-                @include('layouts.footer')
-            </div>
-        </nav>
-    </footer>
 </body>
 
 </html>
