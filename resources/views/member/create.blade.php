@@ -3,26 +3,26 @@
 @section('content')
     <h1>{{ $title }}</h1>
     <p>{{ $sub_title }}</p>
-    <form action={{ route('member.store') }} method="POST">
+    <form action="{{ route('member.store') }}" method="POST">
         @csrf
         <ul class="w-50 list-group list-group-flush">
             <li class="list-group-item">
                 <label>name</label>
-                <input class="w-100" type="text" name="name" id="name" value={{ old('name') }}>
+                <input class="w-100" type="text" name="name" id="name" value="{{ old('name') }}">
                 @error('name')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </li>
             <li class="list-group-item">
                 <label>mail</label>
-                <input class="w-100" type="email" name="mail" id="mail" value={{ old('mail') }}>
+                <input class="w-100" type="email" name="mail" id="mail" value="{{ old('mail') }}">
                 @error('mail')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </li>
             <li class="list-group-item">
                 <label>age</label>
-                <input class="w-100" type="number" name="age" id="age" value={{ old('age') }}>
+                <input class="w-100" type="number" name="age" id="age" value="{{ old('age') }}">
                 @error('age')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
